@@ -1,0 +1,14 @@
+{
+    "name": "cron/neos-formbuilder-backendmodule",
+    "type": "typo3-flow-package",
+    "description": "Backend module for displaying data of submitted forms",
+    "require": {
+        "typo3/neos": "*",
+        "cron/neos-formbuilder": "dev-develop"
+    },
+    "autoload": {
+        "psr-0": {
+            "CRON\\FormBuilder\\BackendModule": "Classes"
+        }
+    }
+}

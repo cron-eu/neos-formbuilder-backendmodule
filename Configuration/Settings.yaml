@@ -1,0 +1,28 @@
+TYPO3:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          'CRON.FormBuilder.BackendModule': ['Main']
+    modules:
+      form-builder:
+        label: 'CRON.FormBuilder.BackendModule:Main:formbuilder.label'
+        controller: \TYPO3\Neos\Controller\Module\ManagementController
+        description: 'CRON.FormBuilder.BackendModule:Main:formbuilder.description'
+        icon: icon-edit
+        submodules:
+          form-submissions:
+            label: 'CRON.FormBuilder.BackendModule:Main:formsubmissions.label'
+            icon: icon-edit-sign
+            controller: CRON\FormBuilder\BackendModule\Controller\FormSubmissionController
+            description: 'CRON.FormBuilder.BackendModule:Main:formsubmissions.description'
+            actions:
+              index:
+                label: 'CRON.FormBuilder.BackendModule:Main:formsubmissions.label'
+                title: 'CRON.FormBuilder.BackendModule:Main:formsubmissions.label'
+            privilegeTarget: CRON.FormBuilder.BackendModule:FormSubmission
+
+CRON:
+  FormBuilder:
+    BackendModule:
+      recordSubmissions: true

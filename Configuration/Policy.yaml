@@ -1,0 +1,10 @@
+privilegeTargets:
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'CRON.FormBuilder.BackendModule:FormSubmission':
+      matcher: 'method(CRON\FormBuilder\BackendModule\Controller\FormSubmissionController->.*Action())'
+roles:
+  'TYPO3.Neos:Editor':
+    privileges:
+      -
+        privilegeTarget: CRON.FormBuilder.BackendModule:FormSubmission
+        permission: GRANT

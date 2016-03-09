@@ -1,0 +1,7 @@
+-
+  requestFilter: 'isPackage("CRON.FormBuilder.BackendModule")'
+  options:
+    layoutRootPaths:
+      'TYPO3.Neos': 'resource://TYPO3.Neos/Private/Layouts'
+    partialRootPaths:
+      'TYPO3.Neos': 'resource://TYPO3.Neos/Private/Partials'

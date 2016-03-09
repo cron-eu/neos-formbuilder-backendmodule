@@ -1,0 +1,64 @@
+<f:layout name="BackendSubModule" />
+
+<f:section name="content">
+	<f:if condition="{formSubmissions}">
+		<f:then>
+			<f:widget.paginate objects="{formSubmissions}" as="paginatedFormSubmissions" configuration="{itemsPerPage: 30, maximumNumberOfLinks: 7}">
+				<table class="neos-table">
+					<thead>
+						<tr>
+							<th>{f:translate(id:'Form')}</th>
+							<th>{f:translate(id:'Submitted on')}</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<f:for each="{paginatedFormSubmissions}" as="formSubmission">
+							<tr>
+								<td>
+									{formSubmission.node.properties.subject}
+								</td>
+								<td>
+									{formSubmission.createdAt -> f:format.date(forceLocale: true)}
+								</td>
+								<td class="neos-action">
+									<div class="neos-pull-right">
+										<f:link.action action="show" arguments="{formSubmission: formSubmission}" class="neos-button neos-button-primary" title="{f:translate(id:'Show form', source: 'Main', package: 'CRON.FormBuilder.BackendModule')}">
+											<i class="icon-info icon-white"></i>
+										</f:link.action>
+
+										<button class="neos-button neos-button-danger" title="{f:translate(id:'Delete form')}" data-toggle="modal" href="#{formSubmission.nodeIdentifier}">
+											<i class="icon-trash icon-white"></i>
+										</button>
+										<div class="neos-hide" id="{formSubmission.nodeIdentifier}" aria-hidden="true" style="display: none;">
+											<div class="neos-modal">
+												<div class="neos-modal-header">
+													<button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
+													<div class="neos-header">
+														{f:translate(id:'Do you really want to delete? This action cannot be undone.', arguments: {0: formSubmission.node.properties.subject, 1: formSubmission.createdAt})}
+													</div>
+												</div>
+												<div class="neos-modal-footer">
+													<a href="#" class="neos-button" data-dismiss="modal">{f:translate(id:'Cancel')}</a>
+													<f:form class="neos-inline" action="delete" arguments="{formSubmission: formSubmission}">
+														<button class="neos-button neos-button-danger" title="Delete this site">
+															{f:translate(id:'Yes, delete this submitted form')}
+														</button>
+													</f:form>
+												</div>
+											</div>
+											<div class="neos-modal-backdrop neos-in"></div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</f:for>
+					</tbody>
+				</table>
+			</f:widget.paginate>
+		</f:then>
+		<f:else>
+			<p>{f:translate(id:'No entries found')}</p>
+		</f:else>
+	</f:if>
+</f:section>

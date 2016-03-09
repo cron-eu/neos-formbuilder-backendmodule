@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file original="" product-name="CRON.FormBuilder.BackendModule" source-language="en" datatype="plaintext" target-language="de">
+		<body>
+			<trans-unit id="formbuilder.label" xml:space="preserve">
+				<target>FormBuilder</target>
+			</trans-unit>
+			<trans-unit id="formbuilder.description" xml:space="preserve">
+				<target>FormBuilder</target>
+			</trans-unit>
+			<trans-unit id="formsubmissions.label" xml:space="preserve">
+				<target>Formulare</target>
+			</trans-unit>
+			<trans-unit id="formsubmissions.description" xml:space="preserve">
+				<target>Liste eingereichter Formulare</target>
+			</trans-unit>
+			<trans-unit id="Form" xml:space="preserve">
+				<target>Formular</target>
+			</trans-unit>
+			<trans-unit id="Submitted on" xml:space="preserve">
+				<target>Eingereicht am</target>
+			</trans-unit>
+			<trans-unit id="Show form" xml:space="preserve">
+				<target>Zeige Formular</target>
+			</trans-unit>
+			<trans-unit id="Field" xml:space="preserve">
+				<target>Feld</target>
+			</trans-unit>
+			<trans-unit id="Value" xml:space="preserve">
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="Delete form" xml:space="preserve">
+				<target>Lösche Formular</target>
+			</trans-unit>
+			<trans-unit id="Yes, delete this submitted form" xml:space="preserve">
+				<target>Ja, dieses eingreichte Formular löschen</target>
+			</trans-unit>
+			<trans-unit id="Cancel" xml:space="preserve">
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="Do you really want to delete? This action cannot be undone." xml:space="preserve">
+				<target>Wollen Sie wirklich "{0} - {1,datetime}" löschen? Diese Aktion kann nicht rückgängig gemacht werden.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

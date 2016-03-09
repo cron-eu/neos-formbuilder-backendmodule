@@ -1,0 +1,55 @@
+<f:layout name="BackendSubModule" />
+
+<f:section name="content">
+	<div class="neos-row-fluid">
+		<legend>{formSubmission.node.properties.subject} - {formSubmission.createdAt -> f:format.date(forceLocale: true)}</legend>
+		<br>
+		<f:if condition="{formSubmission.formElementValues}">
+			<f:then>
+				<table class="neos-table">
+					<thead>
+						<tr>
+							<th>{f:translate(id:'Field')}</th>
+							<th>{f:translate(id:'Value')}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<f:for each="{formSubmission.node.childNodes.0.childNodes}" as="childNode">
+							<f:if condition="{childNode.nodeType.name} == 'CRON.FormBuilder:FieldSet'">
+								<f:then>
+									<tr class="neos-folder">
+										<td class="neos-priority1" colspan="2">
+											{childNode.properties.label}
+										</td>
+									</tr>
+									<f:for each="{childNode.childNodes.0.childNodes}" as="grandChildNode">
+										<f:render section="row" arguments="{node: grandChildNode, formElementValues: formSubmission.formElementValues}"/>
+									</f:for>
+								</f:then>
+								<f:else>
+									<f:render section="row" arguments="{node: childNode, formElementValues: formSubmission.formElementValues}"/>
+								</f:else>
+							</f:if>
+						</f:for>
+					</tbody>
+				</table>
+			</f:then>
+			<f:else>
+				<p>{f:translate(id:'No entries found')}</p>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>
+
+<f:section name="row">
+	<tr>
+		<td>
+			{node.properties.label}
+		</td>
+		<td>
+			<f:for each="{formElementValues}" as="formElementValue">
+				<f:if condition="{formElementValue.node.identifier} == {node.identifier}">{formElementValue.value}</f:if>
+			</f:for>
+		</td>
+	</tr>
+</f:section>
